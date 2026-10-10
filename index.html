@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOPUP GAME EM STORE - Layanan Top Up Game Termurah & Tercepat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#08080a',
+                            card: '#121217',
+                            border: '#262630',
+                            red: '#dc2626',
+                            redhover: '#b91c1c',
+                            redlight: '#ef4444'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #08080a;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glow-red {
+            box-shadow: 0 0 25px rgba(220, 38, 38, 0.35);
+        }
+        .glow-red-sm {
+            box-shadow: 0 0 12px rgba(220, 38, 38, 0.25);
+        }
+        .glass-card {
+            background: rgba(18, 18, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-40 glass-card border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yN19hX3Bob3RvX29mX2FfbmFydXRvX2xlYWZfdmlsbGFnZV9zeW1ib2xfbWluaW1hXzE5MmRiMzRlLThlZjctNGU1NC05ZTk0LTQxNDZlYWM3ZDg4OF8xLnBuZw.png" 
+                         alt="EM Store Logo" class="h-12 w-12 object-contain rounded-lg border border-red-600/30 p-1 bg-black">
+                    <div>
+                        <span class="text-xl font-extrabold tracking-wider block text-white">EM <span class="text-red-600">STORE</span></span>
+                        <span class="text-[10px] text-zinc-400 font-semibold tracking-widest block uppercase">TOPUP GAME EM STORE</span>
+                    </div>
+                </div>
+
+                <!-- Nav Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-semibold text-white hover:text-red-500 transition-colors">Beranda</a>
+                    <a href="#katalog" class="text-sm font-semibold text-zinc-400 hover:text-red-500 transition-colors">Katalog Game</a>
+                    <a href="#promo" class="text-sm font-semibold text-zinc-400 hover:text-red-500 transition-colors">Promo Hot</a>
+                    <a href="#lacak" class="text-sm font-semibold text-zinc-400 hover:text-red-500 transition-colors">Cek Pesanan</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#katalog" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 shadow-lg hover:shadow-red-600/50 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> Top Up Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-zinc-300 hover:text-white text-2xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block text-zinc-300 hover:text-red-500 py-2 text-sm font-medium">Beranda</a>
+            <a href="#katalog" class="block text-zinc-300 hover:text-red-500 py-2 text-sm font-medium">Katalog Game</a>
+            <a href="#promo" class="block text-zinc-300 hover:text-red-500 py-2 text-sm font-medium">Promo Hot</a>
+            <a href="#lacak" class="block text-zinc-300 hover:text-red-500 py-2 text-sm font-medium">Cek Pesanan</a>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section id="home" class="relative py-12 lg:py-20 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-red-600/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-red-950/60 border border-red-600/40 px-3.5 py-1.5 rounded-full mb-6">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="text-xs font-bold text-red-400 tracking-wide uppercase">Top Up Game Instant 24/7 Auto Process</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                        TOPUP GAME <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-600 to-white">EM STORE</span>
+                    </h1>
+                    <p class="text-zinc-400 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Penyedia layanan top up voucher game murah, cepat, dan legal 100%. Proses hitungan detik tanpa registrasi berbelit!
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#katalog" class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-red-600/30 hover:scale-105 text-center">
+                            Mulai Top Up Game
+                        </a>
+                        <a href="#lacak" class="w-full sm:w-auto bg-zinc-900 border border-zinc-700 hover:border-red-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 text-center">
+                            Lacak Status Pesanan
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feature Cards Header -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-l-red-600">
+                        <i class="fa-solid fa-bolt text-3xl text-red-500 mb-3"></i>
+                        <h3 class="font-bold text-white text-base">Proses Otomatis</h3>
+                        <p class="text-xs text-zinc-400 mt-1">Sistem memproses item otomatis 1-3 detik.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-l-red-600">
+                        <i class="fa-solid fa-shield-halved text-3xl text-red-500 mb-3"></i>
+                        <h3 class="font-bold text-white text-base">100% Legal & Aman</h3>
+                        <p class="text-xs text-zinc-400 mt-1">Garansi item resmi dari publisher game.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-l-red-600">
+                        <i class="fa-solid fa-wallet text-3xl text-red-500 mb-3"></i>
+                        <h3 class="font-bold text-white text-base">Metode Lengkap</h3>
+                        <p class="text-xs text-zinc-400 mt-1">QRIS, E-Wallet, BCA, BRI, Mandiri, Alfamart.</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl border-l-4 border-l-red-600">
+                        <i class="fa-solid fa-headset text-3xl text-red-500 mb-3"></i>
+                        <h3 class="font-bold text-white text-base">CS Live 24/7</h3>
+                        <p class="text-xs text-zinc-400 mt-1">Dukungan customer service setiap saat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER SECTION -->
+    <section id="promo" class="py-8 bg-zinc-950 border-y border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-fire text-red-600"></i> PROMO SPESIAL EM STORE
+                    </h2>
+                    <p class="text-xs text-zinc-400">Dapatkan diskon harga spesial untuk item pilihan minggu ini</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-2xl border border-red-600/30 bg-gradient-to-r from-zinc-900 to-red-950 p-6 flex flex-col justify-between">
+                    <span class="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-max mb-4">Hemat 25%</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Mobile Legends</h3>
+                        <p class="text-sm text-zinc-300">Weekly Diamond Pass cuma Rp 27.500!</p>
+                    </div>
+                    <button onclick="openTopUpModal('Mobile Legends')" class="mt-6 w-full bg-white text-black font-bold py-2.5 rounded-xl hover:bg-zinc-200 transition-colors text-sm">Beli Sekarang</button>
+                </div>
+
+                <div class="relative overflow-hidden rounded-2xl border border-red-600/30 bg-gradient-to-r from-zinc-900 to-red-950 p-6 flex flex-col justify-between">
+                    <span class="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-max mb-4">Diskon Member</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Free Fire</h3>
+                        <p class="text-sm text-zinc-300">720 Diamonds Flash Sale cuma Rp 89.000!</p>
+                    </div>
+                    <button onclick="openTopUpModal('Free Fire')" class="mt-6 w-full bg-white text-black font-bold py-2.5 rounded-xl hover:bg-zinc-200 transition-colors text-sm">Beli Sekarang</button>
+                </div>
+
+                <div class="relative overflow-hidden rounded-2xl border border-red-600/30 bg-gradient-to-r from-zinc-900 to-red-950 p-6 flex flex-col justify-between">
+                    <span class="bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-max mb-4">Bonus VP</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Valorant Points</h3>
+                        <p class="text-sm text-zinc-300">Dapatkan CashBack 10% pembayaran via QRIS!</p>
+                    </div>
+                    <button onclick="openTopUpModal('Valorant')" class="mt-6 w-full bg-white text-black font-bold py-2.5 rounded-xl hover:bg-zinc-200 transition-colors text-sm">Beli Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME KATALOG -->
+    <section id="katalog" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">KATALOG GAME <span class="text-red-600">POPULER</span></h2>
+                <p class="text-zinc-400 text-sm mt-2">Pilih game favoritmu dan top up instan dalam hitungan detik</p>
+                <div class="w-20 h-1 bg-red-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="bg-red-600 text-white px-5 py-2 rounded-full text-xs font-bold transition-all shadow-md shadow-red-600/40">Semua Game</button>
+                <button class="bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-red-600 px-5 py-2 rounded-full text-xs font-bold transition-all">Mobile Games</button>
+                <button class="bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-red-600 px-5 py-2 rounded-full text-xs font-bold transition-all">PC Games</button>
+            </div>
+
+            <!-- Game Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Game 1: Mobile Legends -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Mobile Legends')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Mobile Legends" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow">POPULER</span>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Moonton</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Mobile Legends</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 2: Free Fire -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Free Fire')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Free Fire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow">HOT</span>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Garena</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Free Fire</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 3: PUBG Mobile -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('PUBG Mobile')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="PUBG Mobile" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Tencent</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">PUBG Mobile</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 4: Genshin Impact -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Genshin Impact')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=600&q=80" alt="Genshin Impact" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">HoYoverse</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Genshin Impact</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 5: Valorant -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Valorant')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Valorant" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <span class="absolute top-3 right-3 bg-red-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md shadow">PC GAME</span>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Riot Games</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Valorant</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 6: Roblox -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Roblox')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80" alt="Roblox" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Roblox Corp</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Roblox</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 7: Honor of Kings -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Honor of Kings')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80" alt="Honor of Kings" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Level Infinite</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">Honor of Kings</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Game 8: Call of Duty Mobile -->
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-red-600/80 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" onclick="openTopUpModal('Call of Duty Mobile')">
+                    <div class="relative overflow-hidden aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80" alt="CODM" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-3 left-3 right-3">
+                            <span class="text-[10px] text-red-400 font-bold tracking-wider uppercase">Garena</span>
+                            <h3 class="text-base font-extrabold text-white leading-snug">COD Mobile</h3>
+                        </div>
+                    </div>
+                    <div class="p-3.5 bg-zinc-950 flex items-center justify-between border-t border-zinc-800/60">
+                        <span class="text-xs text-zinc-400">Proses Instant</span>
+                        <span class="text-xs font-extrabold text-red-500 group-hover:translate-x-1 transition-transform">Top Up <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACK ORDER SECTION -->
+    <section id="lacak" class="py-16 bg-zinc-950 border-t border-zinc-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="glass-card rounded-3xl p-8 border border-red-600/30 text-center relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-red-600/10 rounded-full blur-2xl"></div>
+
+                <i class="fa-solid fa-magnifying-glass-dollar text-4xl text-red-600 mb-4"></i>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">CEK STATUS TRANSAKSI</h2>
+                <p class="text-zinc-400 text-sm mb-8">Masukkan No. Invoice atau WhatsApp Anda untuk melacak status pembelian</p>
+
+                <form id="trackForm" class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="text" id="trxInput" required placeholder="Contoh: EMS-20239812 / 08123456789" 
+                           class="flex-1 bg-black border border-zinc-700 rounded-xl px-5 py-3.5 text-white placeholder-zinc-500 focus:outline-none focus:border-red-600 transition-colors text-sm">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-3.5 rounded-xl transition-all shadow-md shadow-red-600/30 text-sm whitespace-nowrap">
+                        Cek Status
+                    </button>
+                </form>
+
+                <div id="trackResult" class="hidden mt-6 p-4 bg-zinc-900/90 rounded-xl border border-zinc-800 text-left">
+                    <!-- Dynamic Result via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL & TRUST -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">APA KATA <span class="text-red-600">GAMERS?</span></h2>
+                <p class="text-zinc-400 text-xs mt-1">Ribuan transaksi sukses setiap harinya di EM Store</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-zinc-800">
+                    <div class="flex items-center gap-1 text-red-500 mb-3 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm mb-4">"Gokil banget kilat! Top Up Diamond ML masuk kureng dari 5 detik, harga ramah kantong. Recommended EM Store!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-sm">R</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Rian 'GamerX'</h4>
+                            <span class="text-[10px] text-zinc-500">Mobile Legends Player</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-zinc-800">
+                    <div class="flex items-center gap-1 text-red-500 mb-3 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm mb-4">"Awalnya ragu tapi pas nyoba via QRIS lansung detik itu juga masuk Valorant Points nya. Mantap Bintang 5!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-sm">B</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Bagus Prasetyo</h4>
+                            <span class="text-[10px] text-zinc-500">Valorant Player</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-zinc-800">
+                    <div class="flex items-center gap-1 text-red-500 mb-3 text-xs">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-zinc-300 text-sm mb-4">"Admin CS nya ramah bgt pas tny2 metode bayar. Amanah & tercepat emang topup game em store."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-sm">A</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Andini Putri</h4>
+                            <span class="text-[10px] text-zinc-500">Free Fire Player</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-zinc-900 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsX29mZmljZV8yN19hX3Bob3RvX29mX2FfbmFydXRvX2xlYWZfdmlsbGFnZV9zeW1ib2xfbWluaW1hXzE5MmRiMzRlLThlZjctNGU1NC05ZTk0LTQxNDZlYWM3ZDg4OF8xLnBuZw.png" 
+                             alt="EM Store Logo" class="h-10 w-10 object-contain rounded-lg border border-red-600/30 p-1 bg-black">
+                        <span class="text-xl font-black text-white">TOPUP GAME <span class="text-red-600">EM STORE</span></span>
+                    </div>
+                    <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-md">
+                        Platform Top Up Game terlengkap, terpercaya, dan tercepat di Indonesia. Menyediakan berbagai voucher game populer dengan sistem pembayaran terlengkap & otomatis 24 Jam.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-red-600 pl-2">Navigasi</h4>
+                    <ul class="space-y-2 text-xs text-zinc-400">
+                        <li><a href="#home" class="hover:text-red-500 transition-colors">Beranda</a></li>
+                        <li><a href="#katalog" class="hover:text-red-500 transition-colors">Katalog Game</a></li>
+                        <li><a href="#promo" class="hover:text-red-500 transition-colors">Promo Spesial</a></li>
+                        <li><a href="#lacak" class="hover:text-red-500 transition-colors">Lacak Pesanan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-red-600 pl-2">Hubungi Kami</h4>
+                    <ul class="space-y-2 text-xs text-zinc-400">
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-red-500 text-sm"></i> +62 812-3456-7890</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-red-500 text-sm"></i> support@emstore.com</li>
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-instagram text-red-500 text-sm"></i> @topupgame.emstore</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-900 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500">
+                <p>&copy; 2026 TOPUP GAME EM STORE. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-white">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL TOP UP GAME INTERAKTIF -->
+    <div id="topupModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="glass-card w-full max-w-2xl rounded-3xl border border-red-600/40 p-6 sm:p-8 relative my-8 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <!-- Close Button -->
+            <button onclick="closeTopUpModal()" class="absolute top-5 right-5 text-zinc-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-4 mb-6 pb-4 border-b border-zinc-800">
+                <img id="modalGameImg" src="" class="w-14 h-14 rounded-2xl object-cover border border-red-600">
+                <div>
+                    <span class="text-xs text-red-500 font-bold uppercase tracking-wider">Form Top Up Fast Process</span>
+                    <h3 id="modalGameTitle" class="text-2xl font-black text-white"></h3>
+                </div>
+            </div>
+
+            <form id="orderForm" onsubmit="handleCheckout(event)" class="space-y-6">
+                <!-- Step 1: User ID -->
+                <div>
+                    <label class="block text-xs font-bold text-zinc-300 uppercase mb-2">1. Masukkan User ID / Zone ID</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <input type="text" id="userId" required placeholder="User ID" class="col-span-2 bg-black border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:border-red-600 focus:outline-none">
+                        <input type="text" id="zoneId" placeholder="Server ID" class="bg-black border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:border-red-600 focus:outline-none">
+                    </div>
+                </div>
+
+                <!-- Step 2: Nominal -->
+                <div>
+                    <label class="block text-xs font-bold text-zinc-300 uppercase mb-2">2. Pilih Nominal Item</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="nominalGrid">
+                        <!-- Loaded dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Step 3: Payment Method -->
+                <div>
+                    <label class="block text-xs font-bold text-zinc-300 uppercase mb-2">3. Pilih Metode Pembayaran</label>
+                    <div class="grid grid-cols-2 gap-3" id="paymentGrid">
+                        <div onclick="selectPayment('QRIS ALL PAYMENT', this)" class="payment-card border border-zinc-800 bg-black/60 p-3 rounded-xl cursor-pointer hover:border-red-600 transition-all flex items-center justify-between">
+                            <span class="text-xs font-bold text-white">QRIS (BCA/Gopay/OVO)</span>
+                            <i class="fa-solid fa-qrcode text-red-500"></i>
+                        </div>
+                        <div onclick="selectPayment('DANA Fast Pay', this)" class="payment-card border border-zinc-800 bg-black/60 p-3 rounded-xl cursor-pointer hover:border-red-600 transition-all flex items-center justify-between">
+                            <span class="text-xs font-bold text-white">DANA</span>
+                            <i class="fa-solid fa-wallet text-red-500"></i>
+                        </div>
+                        <div onclick="selectPayment('Transfer BCA', this)" class="payment-card border border-zinc-800 bg-black/60 p-3 rounded-xl cursor-pointer hover:border-red-600 transition-all flex items-center justify-between">
+                            <span class="text-xs font-bold text-white">Transfer Bank BCA</span>
+                            <i class="fa-solid fa-building-columns text-red-500"></i>
+                        </div>
+                        <div onclick="selectPayment('Alfamart', this)" class="payment-card border border-zinc-800 bg-black/60 p-3 rounded-xl cursor-pointer hover:border-red-600 transition-all flex items-center justify-between">
+                            <span class="text-xs font-bold text-white">Alfamart / Indomaret</span>
+                            <i class="fa-solid fa-store text-red-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: No WA -->
+                <div>
+                    <label class="block text-xs font-bold text-zinc-300 uppercase mb-2">4. Nomor WhatsApp (Untuk Bukti Transaksi)</label>
+                    <input type="tel" id="userWa" required placeholder="0812xxxxxxx" class="w-full bg-black border border-zinc-700 rounded-xl px-4 py-3 text-sm text-white focus:border-red-600 focus:outline-none">
+                </div>
+
+                <!-- Summary & Submit -->
+                <div class="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] text-zinc-400 block uppercase">Total Pembayaran:</span>
+                        <span id="totalPrice" class="text-xl font-black text-red-500">Rp 0</span>
+                    </div>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-extrabold px-6 py-3 rounded-xl transition-all shadow-lg shadow-red-600/40 text-sm">
+                        Beli Sekarang <i class="fa-solid fa-cart-shopping ml-1"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Data Nominal Item Game
+        const gameItems = {
+            'Mobile Legends': [
+                { name: '86 Diamonds', price: 21000 },
+                { name: '172 Diamonds', price: 42000 },
+                { name: '257 Diamonds', price: 63000 },
+                { name: '706 Diamonds', price: 168000 },
+                { name: 'Weekly Diamond Pass', price: 27500 },
+                { name: 'Twilight Pass', price: 145000 }
+            ],
+            'Free Fire': [
+                { name: '140 Diamonds', price: 19500 },
+                { name: '355 Diamonds', price: 47000 },
+                { name: '720 Diamonds', price: 89000 },
+                { name: '1440 Diamonds', price: 178000 },
+                { name: 'Member Mingguan', price: 29000 },
+                { name: 'Member Bulanan', price: 145000 }
+            ],
+            'PUBG Mobile': [
+                { name: '60 UC', price: 14500 },
+                { name: '325 UC', price: 73000 },
+                { name: '660 UC', price: 145000 },
+                { name: '1800 UC', price: 385000 }
+            ],
+            'Genshin Impact': [
+                { name: '60 Genesis Crystals', price: 15000 },
+                { name: '300 Genesis Crystals', price: 74000 },
+                { name: 'Blessing Welkin Moon', price: 73000 }
+            ],
+            'Valorant': [
+                { name: '475 Valorant Points', price: 52000 },
+                { name: '1000 Valorant Points', price: 105000 },
+                { name: '2050 Valorant Points', price: 205000 }
+            ],
+            'Roblox': [
+                { name: '400 Robux', price: 78000 },
+                { name: '800 Robux', price: 148000 },
+                { name: '2000 Robux', price: 360000 }
+            ],
+            'Honor of Kings': [
+                { name: '80 Tokens', price: 15000 },
+                { name: '240 Tokens', price: 45000 },
+                { name: '800 Tokens', price: 145000 }
+            ],
+            'Call of Duty Mobile': [
+                { name: '31 CP', price: 5000 },
+                { name: '127 CP', price: 20000 },
+                { name: '620 CP', price: 98000 }
+            ]
+        };
+
+        const gameImages = {
+            'Mobile Legends': 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80',
+            'Free Fire': 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80',
+            'PUBG Mobile': 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80',
+            'Genshin Impact': 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=600&q=80',
+            'Valorant': 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
+            'Roblox': 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80',
+            'Honor of Kings': 'https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=600&q=80',
+            'Call of Duty Mobile': 'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80'
+        };
+
+        let currentSelectedPrice = 0;
+        let currentSelectedItem = '';
+        let currentSelectedPayment = '';
+
+        // Open Modal Top Up
+        function openTopUpModal(gameTitle) {
+            document.getElementById('modalGameTitle').innerText = gameTitle;
+            document.getElementById('modalGameImg').src = gameImages[gameTitle] || '';
+            
+            const nominalGrid = document.getElementById('nominalGrid');
+            nominalGrid.innerHTML = '';
+            currentSelectedPrice = 0;
+            currentSelectedItem = '';
+            document.getElementById('totalPrice').innerText = 'Rp 0';
+
+            const items = gameItems[gameTitle] || [
+                { name: 'Standard Pack A', price: 20000 },
+                { name: 'Standard Pack B', price: 50000 }
+            ];
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card border border-zinc-800 bg-black/60 p-3 rounded-xl cursor-pointer hover:border-red-600 transition-all text-center';
+                card.onclick = () => selectItem(card, item.name, item.price);
+                card.innerHTML = `
+                    <p class="text-xs font-bold text-white">${item.name}</p>
+                    <p class="text-[11px] font-extrabold text-red-500 mt-1">Rp ${item.price.toLocaleString('id-ID')}</p>
+                `;
+                nominalGrid.appendChild(card);
+            });
+
+            document.getElementById('topupModal').classList.remove('hidden');
+        }
+
+        function closeTopUpModal() {
+            document.getElementById('topupModal').classList.add('hidden');
+        }
+
+        // Select Nominal Item
+        function selectItem(element, name, price) {
+            document.querySelectorAll('.item-card').forEach(el => {
+                el.classList.remove('border-red-600', 'bg-red-950/40');
+                el.classList.add('border-zinc-800');
+            });
+            element.classList.remove('border-zinc-800');
+            element.classList.add('border-red-600', 'bg-red-950/40');
+
+            currentSelectedItem = name;
+            currentSelectedPrice = price;
+            document.getElementById('totalPrice').innerText = 'Rp ' + price.toLocaleString('id-ID');
+        }
+
+        // Select Payment Method
+        function selectPayment(methodName, element) {
+            document.querySelectorAll('.payment-card').forEach(el => {
+                el.classList.remove('border-red-600', 'bg-red-950/40');
+                el.classList.add('border-zinc-800');
+            });
+            element.classList.remove('border-zinc-800');
+            element.classList.add('border-red-600', 'bg-red-950/40');
+
+            currentSelectedPayment = methodName;
+        }
+
+        // Handle Form Checkout (Ke WhatsApp Admin)
+        function handleCheckout(event) {
+            event.preventDefault();
+
+            if (!currentSelectedItem || currentSelectedPrice === 0) {
+                alert('Silakan pilih nominal item terlebih dahulu!');
+                return;
+            }
+            if (!currentSelectedPayment) {
+                alert('Silakan pilih metode pembayaran terlebih dahulu!');
+                return;
+            }
+
+            const game = document.getElementById('modalGameTitle').innerText;
+            const userId = document.getElementById('userId').value;
+            const zoneId = document.getElementById('zoneId').value;
+            const userWa = document.getElementById('userWa').value;
+            const invoiceNo = 'EMS-' + Math.floor(100000 + Math.random() * 900000);
+
+            const waMessage = `Halo Admin TOPUP GAME EM STORE, Saya ingin melakukan transaksi:%0A%0A` +
+                `*No. Invoice:* ${invoiceNo}%0A` +
+                `*Game:* ${game}%0A` +
+                `*User ID:* ${userId} ${zoneId ? '(' + zoneId + ')' : ''}%0A` +
+                `*Item:* ${currentSelectedItem}%0A` +
+                `*Pembayaran:* ${currentSelectedPayment}%0A` +
+                `*Total Tagihan:* Rp ${currentSelectedPrice.toLocaleString('id-ID')}%0A` +
+                `*No. WA:* ${userWa}%0A%0A` +
+                `Mohon segera diproses pesanan saya. Terima kasih!`;
+
+            window.open(`https://wa.me/6281234567890?text=${waMessage}`, '_blank');
+            closeTopUpModal();
+        }
+
+        // Track Order Simulation
+        document.getElementById('trackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputVal = document.getElementById('trxInput').value;
+            const resultBox = document.getElementById('trackResult');
+
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `
+                <div class="flex items-center justify-between border-b border-zinc-800 pb-2 mb-2">
+                    <span class="text-xs text-zinc-400">Invoice: <strong class="text-white">${inputVal}</strong></span>
+                    <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded">SUKSES / DIPROSES</span>
+                </div>
+                <p class="text-xs text-zinc-300">Transaksi ditemukan! Item telah berhasil dikirimkan ke ID akun game Anda.</p>
+            `;
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
